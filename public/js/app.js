@@ -20009,6 +20009,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -20016,7 +20017,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      scan: false
+      scan: false,
+      code: null
     };
   },
   mounted: function mounted() {
@@ -20025,6 +20027,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     onDecode: function onDecode(result) {
       console.log(result);
+      this.code = result;
       this.scan = false;
     },
     onLoaded: function onLoaded(result) {
@@ -56835,6 +56838,8 @@ var render = function() {
   return _c(
     "div",
     [
+      _c("h1", { staticClass: "code" }, [_vm._v(_vm._s(_vm.code))]),
+      _vm._v(" "),
       _vm.scan
         ? _c("StreamBarcodeReader", {
             on: { decode: _vm.onDecode, loaded: _vm.onLoaded }
