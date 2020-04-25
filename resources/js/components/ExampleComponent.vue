@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1 class="code">{{ code }}</h1>
     <StreamBarcodeReader
     v-if="scan"
     @decode="onDecode"
@@ -19,6 +20,7 @@ export default {
     data: function(){
         return { 
             scan: false,
+            code: null,
         };
     },
     mounted(){
@@ -27,6 +29,7 @@ export default {
     methods: {
         onDecode: function(result){
             console.log(result);
+            this.code = result;
             this.scan = false;
         },
             onLoaded: function(result){
